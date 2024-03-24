@@ -1,0 +1,5 @@
+ring0=no
+ring1=no
+ring2=no
+ring3=yes
+ring4=yes

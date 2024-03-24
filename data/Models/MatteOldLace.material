@@ -1,0 +1,278 @@
+material MatteOldLaceGroundTmp
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            illumination_stage ambient
+
+            lighting on
+
+            ambient 1.0 1.0 1.0
+            diffuse 0.0 0.0 0.0
+            specular 0.0 0.0 0.0 0.0
+        }
+        pass
+        {
+            illumination_stage per_light
+
+            lighting on
+
+            normalise_normals on
+
+            shading phong
+
+            ambient 0.0 0.0 0.0
+            diffuse 1.0 1.0 1.0
+            specular 0.0 0.0 0.0 10000.0
+
+            iteration once_per_light
+
+            scene_blend add
+        }
+    }
+}
+
+
+material MatteOldLaceGround
+{
+	receive_shadows on
+
+    technique
+    {
+        pass
+        {
+        	illumination_stage ambient
+
+        	lighting on
+
+            ambient 0.9921 0.9608 0.902
+            diffuse 0.0 0.0 0.0
+            specular 0.0 0.0 0.0 0.0
+
+            texture_unit
+            {
+            	rotate 180.0
+	            colour_op alpha_blend
+                tex_address_mode wrap
+                texture Final_Texture_copy.png
+            }
+        }
+        pass
+        {
+        	illumination_stage per_light
+
+        	lighting on
+
+        	normalise_normals on
+
+        	shading phong
+
+	        ambient 0.0 0.0 0.0
+            diffuse 0.9921 0.9608 0.902
+            specular 0.01 0.01 0.01 10000.0
+
+			iteration once_per_light
+
+			scene_blend add
+
+            texture_unit
+            {
+            	rotate 180.0
+	            colour_op alpha_blend
+                tex_address_mode wrap
+                texture Final_Texture_copy3.png 2d 3
+                filtering point point none
+            }
+        }
+        pass
+        {
+        	illumination_stage decal
+
+	        lighting off
+
+	        scene_blend dest_colour zero
+        }
+    }
+}
+
+material MatteOldLaceBoardTmp
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            illumination_stage ambient
+
+            lighting on
+
+            ambient 0.0 0.0 0.0
+            diffuse 0.0 0.0 0.0
+            specular 0.0 0.0 0.0 0.0
+        }
+        pass
+        {
+            illumination_stage per_light
+
+            lighting on
+
+            normalise_normals on
+
+            shading phong
+
+            ambient 0.0 0.0 0.0
+            diffuse 0.0 0.0 0.0
+            specular 0.0 0.0 0.0 10000.0
+
+            iteration once_per_light
+
+            scene_blend add
+        }
+    }
+}
+
+material MatteOldLaceBoard
+{
+	receive_shadows on
+
+    technique
+    {
+        pass
+        {
+        	illumination_stage ambient
+
+        	lighting on
+
+            ambient 0.9921 0.9608 0.902
+            diffuse 0.0 0.0 0.0
+            specular 0.0 0.0 0.0 0.0
+        }
+        pass
+        {
+        	illumination_stage per_light
+
+        	lighting on
+
+        	normalise_normals on
+
+        	shading phong
+
+	        ambient 0.0 0.0 0.0
+            diffuse 0.9921 0.9608 0.902
+            specular 0.01 0.01 0.01 10000.0
+
+			iteration once_per_light
+
+			scene_blend add
+        }
+        pass
+        {
+        	illumination_stage decal
+
+	        lighting off
+
+	        scene_blend dest_colour zero
+        }
+    }
+}
+
+material MatteOldLaceBoard2
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            illumination_stage ambient
+
+            ambient 0.9921 0.9608 0.902 1
+            diffuse 0.0 0.0 0.0 1
+            specular 0.0 0.0 0.0 1.0
+            emissive 0 0 0 1
+        }
+        pass
+        {
+            illumination_stage per_light
+
+            lighting on
+
+            shading phong
+
+            normalise_normals on
+
+            ambient 0.0 0.0 0.0
+            diffuse 0.9921 0.9608 0.902
+            specular 0.01 0.01 0.01 10000.0
+
+            iteration once_per_light
+
+            scene_blend add
+        }
+        pass
+        {
+            illumination_stage decal
+
+            lighting off
+
+            scene_blend dest_colour zero
+        }
+    }
+}
+
+material SilverBall
+{
+	receive_shadows on
+
+    technique
+    {
+        pass
+        {
+        	illumination_stage ambient
+
+        	lighting on
+
+            ambient 0.0 0.0 0.0
+            diffuse 0.0 0.0 0.0
+            specular 0.0 0.0 0.0 0.0
+        }
+        pass
+        {
+        	illumination_stage per_light
+
+        	lighting on
+
+        	normalise_normals on
+
+        	shading phong
+
+	        ambient 0.0 0.0 0.0
+            diffuse 0.25 0.25 0.25
+            specular 0.5 0.5 0.5 10000.0
+
+			iteration once_per_light
+
+			scene_blend add
+
+            texture_unit
+            {
+                rotate 180.0
+                colour_op alpha_blend
+                tex_address_mode wrap
+                texture Water02_orig.jpg
+            }
+        }
+        pass
+        {
+        	illumination_stage decal
+
+	        lighting off
+
+	        scene_blend dest_colour zero
+        }
+    }
+}

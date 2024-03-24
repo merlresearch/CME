@@ -1,0 +1,54 @@
+material Ball/NoMaterial
+{
+    receive_shadows off
+    technique {
+        pass
+        {
+        	illumination_stage ambient
+
+        	lighting on
+
+            ambient 0.19017842411994934 0.19017842411994934 0.19017842411994934 1.0
+            diffuse 0.05214274156306296 0.05214274156306296 0.05214274156306296 1.0
+            specular 0.0 0.0 0.0 0.0
+        }
+        pass Material.001 {
+            ambient 0.0 0.0 0.0 1.0
+            diffuse 0.0 0.0 0.0 1.0
+            //specular 1.0 1.0 1.0 1.0 30.5
+            //specular 1.0 1.0 1.0 1.0 130.5
+            specular 1.0 1.0 1.0 1.0 30.0
+            emissive 0.0 0.0 0.0 1.0
+
+            alpha_to_coverage off
+            //colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage per_light
+            //light_clip_planes off
+            //light_scissor off
+            lighting on
+            normalise_normals on
+            polygon_mode solid
+            //scene_blend one zero
+            //scene_blend_op add
+            shading phong
+            //transparent_sorting on
+			iteration once_per_light
+			scene_blend add
+
+            texture_unit
+            {
+            //    texture Water02_orig.jpg
+            //    colour_op replace
+            //    tex_address_mode wrap
+            //    colour_op_ex modulate src_texture src_current
+            //    colour_op_ex blend_manual src_texture src_current 0.1
+            //    //env_map spherical
+            }
+
+        }
+    }
+}

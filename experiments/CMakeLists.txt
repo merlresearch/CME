@@ -1,0 +1,57 @@
+# Copyright (C) 2020, 2023 Mitsubishi Electric Research Laboratories (MERL)
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+
+project(experiments)
+
+set(SIM2SIM_DIRPATH ${PROJECT_SOURCE_DIR}/settings)
+set(SIM2SIM_INSTALL_PATH ${CMAKE_INSTALL_PREFIX}/experimental_settings/sim2sim)
+
+file(GLOB_RECURSE CONFIG_FILES_SIM
+  ${SIM2SIM_DIRPATH}/*
+  )
+
+set(SIM2SIM_WORKING "configured_out_sim")
+
+foreach(CONFIG_FILE ${CONFIG_FILES_SIM})
+  file(RELATIVE_PATH RELATIVE_FILEPATH ${SIM2SIM_DIRPATH} ${CONFIG_FILE})
+  configure_file(${CONFIG_FILE} "${SIM2SIM_WORKING}/${RELATIVE_FILEPATH}")
+endforeach()
+
+file(GLOB_RECURSE CONFIGURED_FILES_SIM
+        ${PROJECT_BINARY_DIR}/${SIM2SIM_WORKING}/*
+        )
+
+install(
+        FILES
+        ${CONFIGURED_FILES_SIM}
+        DESTINATION ${SIM2SIM_INSTALL_PATH}
+)
+
+
+
+set(SIM2REAL_DIRPATH ${PROJECT_SOURCE_DIR}/sim2real/settings)
+set(SIM2REAL_INSTALL_PATH ${CMAKE_INSTALL_PREFIX}/experimental_settings/sim2real)
+
+file(GLOB_RECURSE CONFIG_FILES_REAL
+  ${SIM2REAL_DIRPATH}/*
+  )
+
+set(SIM2REAL_WORKING "configured_out_real")
+
+foreach(CONFIG_FILE ${CONFIG_FILES_REAL})
+  file(RELATIVE_PATH RELATIVE_FILEPATH ${SIM2REAL_DIRPATH} ${CONFIG_FILE})
+  configure_file(${CONFIG_FILE} "${SIM2REAL_WORKING}/${RELATIVE_FILEPATH}")
+endforeach()
+
+file(GLOB_RECURSE CONFIGURED_FILES_REAL
+        ${PROJECT_BINARY_DIR}/${SIM2REAL_WORKING}/*
+        )
+
+install(
+        FILES
+        ${CONFIGURED_FILES_REAL}
+        DESTINATION ${SIM2REAL_INSTALL_PATH}
+)
